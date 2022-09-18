@@ -12,7 +12,7 @@ public class NBody{
         int n = in.readInt();
         in.readDouble();
         Planet[] p = new Planet[n];
-        for(int i = 0; i < 5; i++) {
+        for(int i = 0; i < n; i++) {
             p[i] = new Planet(in.readDouble(), in.readDouble(), in.readDouble(), in.readDouble(), in.readDouble(), in.readString());
         }
         return p;
