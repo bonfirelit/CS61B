@@ -61,6 +61,7 @@ public class LinkedListDeque<T> {
             System.out.print(tmp.item + " ");
             tmp = tmp.next;
         }
+        System.out.println();
     }
 
     public T removeFirst()
@@ -91,18 +92,24 @@ public class LinkedListDeque<T> {
 
     public T get(int index)
     {
-        if(isEmpty() || index >= size) return null;
-        while(index+1 != 0) {
+        if (isEmpty() || index >= size) return null;
+        while (index + 1 != 0) {
             ptr = ptr.next;
             index -= 1;
         }
-        return ptr.item;
+        Node<T> ret = ptr;
+        ptr = head;
+        return ret.item;
     }
 
     public T getRecursive(int index)
     {
-        if(isEmpty() || index >= size) return null;
-        if(index+1 == 0) return ptr.item;
+        if (isEmpty() || index >= size) return null;
+        if (index + 1 == 0) {
+            Node<T> ret = ptr;
+            ptr = head;
+            return ret.item;
+        }
         ptr = ptr.next;
         return getRecursive(index - 1);
     }

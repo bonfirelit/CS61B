@@ -26,18 +26,18 @@ public class ArrayDeque<T> {
 
     private T[] longer()
     {
-        T[] resized = (T[]) new Object[size + 2];
+        T[] resized = (T[]) new Object[size * 2 + 1];
         int i, j, cnt;
         i = j =front;
         cnt = 0;
         while(cnt < len) {
             resized[j] = arr[i];
-            i = (i + 1) % (size + 1);
-            j = (j + 1) % (size + 2);
+            i = (i + 1) % arr.length;
+            j = (j + 1) % resized.length;
             cnt += 1;
         }
         rear = j;
-        size += 1;
+        size *= 2;
         return resized;
     }
 
@@ -50,7 +50,7 @@ public class ArrayDeque<T> {
         j = cnt = 0;
         while(cnt < len) {
             resized[j] = arr[i];
-            i = (i + 1) % (size + 1);
+            i = (i + 1) % arr.length;
             j += 1;
             cnt += 1;
         }
@@ -129,13 +129,8 @@ public class ArrayDeque<T> {
 
     public T get(int index)
     {
-        if(isEmpty()) 
-            return null;
-        int dist = index - front;
-        if(dist < 0) dist += (size + 1);
-        if(dist >= len)
-            return null;
-        return arr[index];
+        if(isEmpty() || index >= len) return null;
+        return arr[(index + front) % arr.length];
     }
 
 }
