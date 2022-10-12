@@ -1,6 +1,6 @@
 public class ArrayDeque<T> {
     private T[] arr;
-    public int size;//TEMPORARY!!!!!!!!!!!
+    private int size;
     private int front;
     private int rear;
     private int len;

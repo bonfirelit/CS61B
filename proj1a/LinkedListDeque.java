@@ -1,5 +1,5 @@
 public class LinkedListDeque<T> {
-    
+
     private static class Node<T> {
         private T item;
         private Node<T> next;
@@ -8,12 +8,6 @@ public class LinkedListDeque<T> {
         public Node(T item, Node<T> pre, Node<T> next)
         {
             this.item = item;
-            this.next = next;
-            this.pre = pre;
-        }
-    
-        public Node(Node<T> pre, Node<T> next)
-        {
             this.next = next;
             this.pre = pre;
         }
@@ -26,8 +20,8 @@ public class LinkedListDeque<T> {
 
     public LinkedListDeque()
     {
-        head = new Node<T>(null, null);
-        tail = new Node<T>(null, null);
+        head = new Node<T>(null, null, null);
+        tail = new Node<T>(null, null, null);
         head.next = tail;
         tail.pre = head;
         ptr = head;
