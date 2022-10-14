@@ -21,6 +21,8 @@ public class Palindrome {
             if (wordDeque.get(i) != wordDeque.get(j)) {
                 return false;
             }
+            i += 1;
+            j -= 1;
         }
         return true;
     }
@@ -38,6 +40,8 @@ public class Palindrome {
             if (!cc.equalChars(wordDeque.get(i),wordDeque.get(j))) {
                 return false;
             }
+            i += 1;
+            j -= 1;
         }
         return true;
     }
